@@ -18,7 +18,7 @@ defmodule ElixircarajasapiWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-
+    get "/about", PageController, :about
     get "/api/v1/event", EventController, :index
   end
 
