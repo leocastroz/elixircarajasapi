@@ -35,3 +35,5 @@ elixircarajasapi-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore environment files that may contain sensitive data.
+.env
