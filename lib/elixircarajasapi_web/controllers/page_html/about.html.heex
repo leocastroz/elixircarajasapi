@@ -1,2 +1,31 @@
-<h1>Sobre o Projeto</h1>
-<p>Este projeto é feito com Elixir + Phoenix leonardo.</p>
+<div id="eventos-container">
+  <p>Carregando eventos...</p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/api/v1/event")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("eventos-container");
+        container.innerHTML = "";
+
+        data.forEach((item) => {
+          const evento = item.evento;
+          const card = `
+            <div style="margin-bottom: 1rem;">
+              <h3>${evento.nome}</h3>
+              <p>${evento.descricao}</p>
+              <strong>Data:</strong> ${evento.data}<br>
+              <strong>Local:</strong> ${evento.local.nome}, ${evento.local.endereco.cidade}
+            </div>
+          `;
+          container.innerHTML += card;
+        });
+      })
+      .catch(error => {
+        console.error("Erro ao carregar eventos:", error);
+        document.getElementById("eventos-container").innerHTML = "Erro ao carregar eventos.";
+      });
+  });
+</script>

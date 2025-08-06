@@ -9,4 +9,8 @@ defmodule ElixircarajasapiWeb.PageController do
     render(conn, :about)
   end
   
+  def members(conn, _params) do
+    render(conn, :members)
+  end
+  
 end

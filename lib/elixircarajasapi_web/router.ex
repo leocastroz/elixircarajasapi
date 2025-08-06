@@ -19,6 +19,8 @@ defmodule ElixircarajasapiWeb.Router do
 
     get "/", PageController, :home
     get "/about", PageController, :about
+    # get "/members", PageController, :members
+    live "/members", MembersLive
     get "/api/v1/event", EventController, :index
   end
 
