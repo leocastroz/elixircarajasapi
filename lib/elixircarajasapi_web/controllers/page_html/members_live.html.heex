@@ -1,0 +1,15 @@
+<%!-- <h2>Eventos Disponíveis</h2>
+
+<%= if Enum.empty?(@events) do %>
+  <p>Nenhum evento encontrado.</p>
+<% else %>
+  <%= for evento_map <- @events do %>
+    <% evento = evento_map["evento"] %>
+    <div style="margin-bottom: 1rem;">
+      <h3><%= evento["nome"] %></h3>
+      <p><%= evento["descricao"] %></p>
+      <strong>Data:</strong> <%= evento["data"] %><br>
+      <strong>Local:</strong> <%= evento["local"]["nome"] %> - <%= evento["local"]["endereco"]["cidade"] %>
+    </div>
+  <% end %>
+<% end %> --%>
