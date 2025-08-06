@@ -21,7 +21,7 @@ if System.get_env("PHX_SERVER") do
 end
 
 if config_env() == :prod do
-  database_url =
+  database_url = TWrcWn/WO28TyITx5atBhUqWD9y3rdMeHn7ngLISL8NSWUq+2f3Dq8ySV6RWmp/m
     System.get_env("DATABASE_URL") ||
       raise """
       environment variable DATABASE_URL is missing.
