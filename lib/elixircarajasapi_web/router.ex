@@ -1,11 +1,11 @@
 defmodule ElixircarajasapiWeb.Router do
   use ElixircarajasapiWeb, :router
 
-  @session_options [
-    store: :cookie,
-    key: "_elixircarajas_key",
-    signing_salt: "algum_salt"
-  ]
+  # @session_options [
+  #   store: :cookie,
+  #   key: "_elixircarajas_key",
+  #   signing_salt: "algum_salt"
+  # ]
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -27,7 +27,7 @@ defmodule ElixircarajasapiWeb.Router do
     get "/about", PageController, :about
     # get "/members", PageController, :members
 
-    live_session :default, session: @session_options do
+    live_session :default do
       live "/members", MembersLive
     end
 
