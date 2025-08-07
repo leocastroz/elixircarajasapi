@@ -1,12 +1,6 @@
 defmodule ElixircarajasapiWeb.Router do
   use ElixircarajasapiWeb, :router
 
-  # @session_options [
-  #   store: :cookie,
-  #   key: "_elixircarajas_key",
-  #   signing_salt: "algum_salt"
-  # ]
-
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -26,11 +20,7 @@ defmodule ElixircarajasapiWeb.Router do
     get "/", PageController, :home
     get "/about", PageController, :about
     # get "/members", PageController, :members
-
-    live_session :default do
-      live "/members", MembersLive
-    end
-
+    live "/members", MembersLive
     get "/api/v1/event", EventController, :index
   end
 
@@ -41,6 +31,11 @@ defmodule ElixircarajasapiWeb.Router do
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:elixircarajasapi, :dev_routes) do
+    # If you want to use the LiveDashboard in production, you should put
+    # it behind authentication and allow only admins to access it.
+    # If your application does not have an admins-only section yet,
+    # you can use Plug.BasicAuth to set up some basic authentication
+    # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
